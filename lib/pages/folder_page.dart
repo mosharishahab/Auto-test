@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class _FolderPageState extends State<FolderPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Study your favourite subject!'),
+          title: const Text('Study your favourite subject!', style: TextStyle(fontSize: 16)),
         ),
         body: FutureBuilder(
           future: Provider.of<StorageProvider>(context, listen: false)
@@ -51,7 +52,7 @@ class _FolderPageState extends State<FolderPage> {
                               ? Icons.folder
                               : Icons.picture_as_pdf),
                           title: Text(
-                            item.name.toUpperCase(),
+                            item.name.toUpperCase(, style: TextStyle(fontSize: 16)),
                           ),
                           trailing: const Icon(
                             Icons.arrow_forward_ios_rounded,

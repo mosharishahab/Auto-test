@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -61,14 +62,14 @@ class _AnswerPageState extends State<AnswerPage> {
 
   void _handlePaymentError(PaymentFailureResponse response) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Payment failed: ${response.message}")),
+      SnackBar(content: Text("Payment failed: ${response.message}", style: TextStyle(fontSize: 16))),
     );
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-          content: Text("External wallet selected: ${response.walletName}")),
+          content: Text("External wallet selected: ${response.walletName}", style: TextStyle(fontSize: 16))),
     );
   }
 
@@ -86,7 +87,7 @@ class _AnswerPageState extends State<AnswerPage> {
       _razorpay.open(options);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error: $e")),
+        SnackBar(content: Text("Error: $e", style: TextStyle(fontSize: 16))),
       );
     }
   }
@@ -101,7 +102,7 @@ class _AnswerPageState extends State<AnswerPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+            return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(fontSize: 16)));
           } else {
             return Consumer<StorageAnsProvider>(
               builder: (context, storageAnsProvider, child) {
@@ -210,7 +211,7 @@ class _AnswerPageState extends State<AnswerPage> {
                                 } else {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                        content: Text("Item path is null")),
+                                        content: Text("Item path is null", style: TextStyle(fontSize: 16))),
                                   );
                                 }
                               },
@@ -236,7 +237,7 @@ class _AnswerPageState extends State<AnswerPage> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 5),
                                       child: Text(
-                                        item.name.toUpperCase(),
+                                        item.name.toUpperCase(, style: TextStyle(fontSize: 16)),
                                         style: GoogleFonts.inter(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,

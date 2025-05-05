@@ -31,3 +31,4 @@ jobs:
             python .github/scripts/handle_gpt_command.py
           else
             echo "No GPT command to process."
+          fi

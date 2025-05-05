@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(
-      //   title: Text('Home'),
+      //   title: Text('Home', style: TextStyle(fontSize: 16)),
       //   automaticallyImplyLeading: false,
       // ),
       body: FutureBuilder(
@@ -180,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                       vertical: 0,
                                     ),
                                     child: Text(
-                                      item.name.toUpperCase(),
+                                      item.name.toUpperCase(, style: TextStyle(fontSize: 16)),
                                       style: GoogleFonts.inter(
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -215,7 +216,7 @@ class _HomePageState extends State<HomePage> {
 //                           leading: Icon(item.isFolder
 //                               ? Icons.folder
 //                               : Icons.picture_as_pdf),
-//                           title: Text(item.name),..
+//                           title: Text(item.name, style: TextStyle(fontSize: 16)),..
 //                           onTap: () {
 //                             Navigator.push(
 //                               context,

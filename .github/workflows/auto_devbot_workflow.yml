@@ -1,0 +1,33 @@
+name: Auto DevBot Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  run-auto-devbot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          pip install PyGithub python-dotenv
+
+      - name: Run Auto Error Fixer
+        run: python .github/scripts/fix_error_lines.py
+
+      - name: Run GPT Command Handler (optional)
+        run: |
+          if [ -f gpt_command.txt ]; then
+            python .github/scripts/handle_gpt_command.py
+          else
+            echo "No GPT command to process."

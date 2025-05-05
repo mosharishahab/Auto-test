@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -51,8 +52,8 @@ class _UserProfileEditState extends State<UserProfileEdit> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Confirm Update'),
-          content: Text('Are you sure you want to update your profile?'),
+          title: Text('Confirm Update', style: TextStyle(fontSize: 16)),
+          content: Text('Are you sure you want to update your profile?', style: TextStyle(fontSize: 16)),
           actions: <Widget>[
             TextButton(
               child: Text(

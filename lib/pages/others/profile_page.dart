@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: currentUser == null
           ? const Center(
-              child: Text('No User Logged in'),
+              child: Text('No User Logged in', style: TextStyle(fontSize: 16)),
             )
           : FutureBuilder<DocumentSnapshot>(
               future: authData.collection('users').doc(currentUser.uid).get(),
@@ -60,12 +61,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   );
                 } else if (userSnapshot.hasError) {
                   return const Center(
-                    child: Text("Error fetching user data"),
+                    child: Text("Error fetching user data", style: TextStyle(fontSize: 16)),
                   );
                 } else if (!userSnapshot.hasData ||
                     !userSnapshot.data!.exists) {
                   return const Center(
-                    child: Text('User data not found'),
+                    child: Text('User data not found', style: TextStyle(fontSize: 16)),
                   );
                 } else {
                   var userData =

@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Say Hello
-        run: echo "✅ GitHub Action is working!"
+        run: echo "✅1 GitHub Action is working!"

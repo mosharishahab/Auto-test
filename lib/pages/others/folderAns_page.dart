@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:easy_pdf_viewer/easy_pdf_viewer.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class _FolderAnsPageState extends State<FolderAnsPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Get All Correct Solutions"),
+          title: Text("Get All Correct Solutions", style: TextStyle(fontSize: 16)),
         ),
         body: FutureBuilder(
           future: Provider.of<StorageAnsProvider>(context, listen: false)
@@ -51,7 +52,7 @@ class _FolderAnsPageState extends State<FolderAnsPage> {
                               ? Icons.folder
                               : Icons.picture_as_pdf),
                           title: Text(
-                            item.name.toUpperCase(),
+                            item.name.toUpperCase(, style: TextStyle(fontSize: 16)),
                           ),
                           trailing: Icon(
                             Icons.arrow_forward_ios_rounded,

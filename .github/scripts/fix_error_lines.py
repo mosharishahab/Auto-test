@@ -14,7 +14,7 @@ repo = g.get_repo(repo_name)
 # تعریف الگوهای اصلاحی
 fixes = [
     {
-        "pattern": r"e\.message\.toString\(,\s*style: TextStyle\([^)]+\)\)",
+        "pattern": r"e\.message\.toString\(\s*,\s*style: TextStyle\([^)]+\)\)",
         "replacement": "e.message.toString(), style: TextStyle(fontSize: 16)"
     },
     {
@@ -24,26 +24,31 @@ fixes = [
 ]
 
 def process_file(content_file):
-    file_content = content_file.decoded_content.decode()
-    original_content = file_content
+    file_path = content_file.path
+    print(f"🧪 Processing: {file_path}")
 
-    for fix in fixes:
-        file_content = re.sub(fix["pattern"], fix["replacement"], file_content)
+    try:
+        file_content = content_file.decoded_content.decode()
+        original_content = file_content
 
-    if file_content != original_content:
-        if not file_content.startswith("// [AutoFix by GPT]"):
-            file_content = "// [AutoFix by GPT]\n" + file_content
+        for fix in fixes:
+            file_content = re.sub(fix["pattern"], fix["replacement"], file_content)
 
-        repo.update_file(
-            content_file.path,
-            "AutoFix: applied common Dart fixes",
-            file_content,
-            content_file.sha
-        )
-        print(f"✅ Fixed: {content_file.path}")
-    else:
-        print(f"⏩ No changes: {content_file.path}")
+        if file_content != original_content:
+            if not file_content.startswith("// [AutoFix by GPT]"):
+                file_content = "// [AutoFix by GPT]\n" + file_content
 
+            repo.update_file(
+                content_file.path,
+                "AutoFix: applied common Dart fixes",
+                file_content,
+                content_file.sha
+            )
+            print(f"✅ Fixed: {file_path}")
+        else:
+            print(f"⏩ No changes: {file_path}")
+    except Exception as e:
+        print(f"❌ Error updating {file_path}: {e}")
 
 def walk_and_fix():
     contents = repo.get_contents(folder_path)

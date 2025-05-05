@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -32,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            e.message.toString(),
+            e.message.toString(, style: TextStyle(fontSize: 16)),
           ),
           duration: const Duration(seconds: 3),
           backgroundColor: Colors.red[200],

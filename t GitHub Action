@@ -1,0 +1,61 @@
+[33mcommit 06409c0101e97b38e0d89045639d3bc2a51d1cba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Shahab <128097623+mosharishahab@users.noreply.github.com>
+Date:   Tue May 6 00:38:38 2025 +0330
+
+    g
+
+[1mdiff --git a/.github/workflows/auto_devbot_workflow.yml b/.github/workflows/auto_devbot_workflow.yml[m
+[1mindex 7e2510d..b5be036 100644[m
+[1m--- a/.github/workflows/auto_devbot_workflow.yml[m
+[1m+++ b/.github/workflows/auto_devbot_workflow.yml[m
+[36m@@ -31,3 +31,4 @@[m [mjobs:[m
+             python .github/scripts/handle_gpt_command.py[m
+           else[m
+             echo "No GPT command to process."[m
+[32m+[m[32m          fi[m
+
+[33mcommit 2da4a87797f110af4c590601c13c11e5b10a34c0[m
+Author: Shahab <128097623+mosharishahab@users.noreply.github.com>
+Date:   Tue May 6 00:21:53 2025 +0330
+
+    Add DevBot automation files
+
+[1mdiff --git a/.github/workflows/auto_devbot_workflow.yml b/.github/workflows/auto_devbot_workflow.yml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7e2510d[m
+[1m--- /dev/null[m
+[1m+++ b/.github/workflows/auto_devbot_workflow.yml[m
+[36m@@ -0,0 +1,33 @@[m
+[32m+[m[32mname: Auto DevBot Workflow[m
+[32m+[m
+[32m+[m[32mon:[m
+[32m+[m[32m  workflow_dispatch:[m
+[32m+[m[32m  schedule:[m
+[32m+[m[32m    - cron: '0 6 * * *'[m
+[32m+[m
+[32m+[m[32mjobs:[m
+[32m+[m[32m  run-auto-devbot:[m
+[32m+[m[32m    runs-on: ubuntu-latest[m
+[32m+[m
+[32m+[m[32m    steps:[m
+[32m+[m[32m      - name: Checkout repository[m
+[32m+[m[32m        uses: actions/checkout@v3[m
+[32m+[m
+[32m+[m[32m      - name: Set up Python[m
+[32m+[m[32m        uses: actions/setup-python@v4[m
+[32m+[m[32m        with:[m
+[32m+[m[32m          python-version: 3.11[m
+[32m+[m
+[32m+[m[32m      - name: Install dependencies[m
+[32m+[m[32m        run: |[m
+[32m+[m[32m          pip install PyGithub python-dotenv[m
+[32m+[m
+[32m+[m[32m      - name: Run Auto Error Fixer[m
+[32m+[m[32m        run: python .github/scripts/fix_error_lines.py[m
+[32m+[m
+[32m+[m[32m      - name: Run GPT Command Handler (optional)[m
+[32m+[m[32m        run: |[m
+[32m+[m[32m          if [ -f gpt_command.txt ]; then[m
+[32m+[m[32m            python .github/scripts/handle_gpt_command.py[m
+[32m+[m[32m          else[m
+[32m+[m[32m            echo "No GPT command to process."[m

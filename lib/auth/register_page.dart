@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: const Text("Password is Incorrect"),
+            content: const Text("Password is Incorrect", style: TextStyle(fontSize: 16)),
             duration: const Duration(seconds: 3),
             backgroundColor: Colors.red[200],
             shape: const RoundedRectangleBorder(
@@ -65,7 +66,7 @@ class _RegisterPageState extends State<RegisterPage> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(e.message.toString()),
+          content: Text(e.message.toString(, style: TextStyle(fontSize: 16))),
           duration: const Duration(seconds: 3),
           backgroundColor: Colors.red[200],
           shape: const RoundedRectangleBorder(

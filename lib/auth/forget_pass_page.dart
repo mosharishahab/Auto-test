@@ -1,3 +1,4 @@
+// [AutoFix by GPT] Style added
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
       );
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text("Password Reset Link Sent Succesfully!"),
+          content: const Text("Password Reset Link Sent Succesfully!", style: TextStyle(fontSize: 16)),
           duration: const Duration(seconds: 3),
           backgroundColor: Colors.green[200],
           shape: const RoundedRectangleBorder(
@@ -34,7 +35,7 @@ class _ForgetPassPageState extends State<ForgetPassPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            e.message.toString(),
+            e.message.toString(, style: TextStyle(fontSize: 16)),
           ),
           duration: const Duration(seconds: 3),
           backgroundColor: Colors.red[200],

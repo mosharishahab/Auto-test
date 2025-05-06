@@ -1,0 +1,12 @@
+<file contents>, I can generate the file and provide the contents.
+
+Wait, the user might not have a text editor open. So maybe using a command to create and write the file. For example:
+
+echo "This is a GitHub test from AiDev!" > test_github.txt
+
+But I need to make sure the file is created at the root. If the project root isn't specified, maybe the default path is assumed. However, the user said "at the project root," so I should confirm that the path is correct.
+
+Alternatively, using a shell command to create and write the file. But since I'm supposed to respond with the format, I'll generate the file and provide the contents as per the instructions.
+</think>
+
+test_github.txt:::This is a GitHub test from AiDev!
